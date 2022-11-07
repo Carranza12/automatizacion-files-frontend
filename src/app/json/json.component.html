@@ -1,0 +1,137 @@
+<div class="container">
+    <form [formGroup]="jsonNew" (submit)="createJSON()">
+   <div class="row">
+    <div class="col-10">
+       
+            <h1>Crea un nuevo JSON</h1>
+            <div class="mb-3">
+              <label  class="form-label">Nombre del archivo</label>
+              <input formControlName="nombre_archivo" type="text" class="form-control">
+            </div>
+
+            <div class="mb-3">
+                <label  class="form-label">id del archivo</label>
+                <input formControlName="id_archivo" type="text" class="form-control">
+            </div>
+
+            <div class="mb-3">
+                <label  class="form-label">Nombre en español</label>
+                <input formControlName="nombre_espanol" type="text" class="form-control">
+            </div>
+
+            <div class="mb-3">
+                <label  class="form-label">Nombre en ingles</label>
+                <input formControlName="nombre_ingles" type="text" class="form-control">
+            </div>
+
+            <div class="mb-3">
+                <label  class="form-label">Nombre en portugues</label>
+                <input formControlName="nombre_portugues" type="text" class="form-control">
+            </div>
+
+            <div class="mb-3">
+                <label  class="form-label">Nombre de la coleccion</label>
+                <input formControlName="nombre_coleccion" type="text" class="form-control">
+            </div>
+
+            
+            <div class="mb-3">
+                <label  class="form-label">Titulo en español</label>
+                <input formControlName="titulo_espanol" type="text" class="form-control">
+            </div>
+
+            <div class="mb-3">
+                <label  class="form-label">Titulo en ingles</label>
+                <input formControlName="titulo_ingles" type="text" class="form-control">
+            </div>
+
+            <div class="mb-3">
+                <label  class="form-label">Titulo en portugues</label>
+                <input formControlName="titulo_portugues" type="text" class="form-control">
+            </div>
+    
+        </div>
+
+    </div>
+
+    <div class="row">
+        <div class="col-6">
+            <div class="card card-body">
+                <h3>Agrega tus inputs</h3>
+                <div class="form-group">
+                    <div class="mb-3">
+                        <label  class="form-label">id del input</label>
+                        <input [formControl]="id_input"  type="text" class="form-control">
+                    </div>
+                    <div class="mb-3">
+                        <label  class="form-label">Nombre del input</label>
+                        <input [formControl]="nombre_input" type="text" class="form-control">
+                      </div>
+
+                      <div class="mb-3">
+                        <label  class="form-label">label en español</label>
+                        <input [formControl]="label_espanol" type="text" class="form-control">
+                      </div>
+                      <div class="mb-3">
+                        <label  class="form-label">label en ingles</label>
+                        <input [formControl]="label_ingles" type="text" class="form-control">
+                      </div>
+                      <div class="mb-3">
+                        <label  class="form-label">label en portugues</label>
+                        <input [formControl]="label_portuges" type="text" class="form-control">
+                      </div>
+
+                      
+
+                      <div class="mb-3">
+                        <select [formControl]="tipo_input"  class="form-select" aria-label="Default select example">
+                            <option selected>Tipo de input</option>
+                            <option value="text">text</option>
+                            <option value="radio">radio</option>
+                            <option value="checkbox">checkbox</option>
+                            <option value="date">date</option>
+                            <option value="textarea">textarea</option>
+                          </select>
+                      </div>
+                      <button type="button" class="btn btn-success mb-5 " (click)="addInput()">Agregar input</button>
+                </div>
+
+
+
+
+                <button type="submit"  class="btn btn-primary">Crear</button>
+            </div>
+        </div>
+        <div class="col-6">
+            <table class="table">
+                <thead>
+                  <tr>
+                    <th scope="col">id</th>
+                    <th scope="col">nombre</th>
+                    <th scope="col">label </th>
+                    <th scope="col">Tipo</th>
+                  </tr>
+                </thead>
+                <tbody>
+                 <tr *ngFor="let item of inputList">
+                    <td>{{item.id}}</td>
+                    <td>{{item.name}}</td>
+                    <td>
+                        <p><strong>ES:</strong>{{item.label.es}}</p>
+                        <p><strong>EN:</strong>{{item.label.en}}</p>
+                        <p><strong>PT:</strong>{{item.label.pt}}</p>
+                    </td>
+                    <td>{{item.type}}</td>
+                 </tr>
+                </tbody>
+              </table>
+        </div>
+    </div>
+           
+            
+            
+          </form>
+
+   
+    
+</div>
